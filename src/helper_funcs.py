@@ -52,7 +52,7 @@ def split_nodes_links(old_nodes):
     new_nodes = []
     for node in old_nodes:
         link_tuples = extract_markdown_links(node.text)
-        # If there are no images, return this node and continue
+        # If there are no links, return this node and continue
         if not link_tuples:
             new_nodes.append(node)
             continue
@@ -66,3 +66,13 @@ def split_nodes_links(old_nodes):
         if len(working_text) > 0:
             new_nodes.append(TextNode(working_text, TextType.TEXT))
     return new_nodes
+
+def text_to_textnodes(text):
+    node_list = []
+    node_list.append(TextNode(text, TextType.TEXT, url=None))
+    images = split_nodes_image(node_list)
+    links = split_nodes_links(images)
+    code = split_nodes_delimiter(links, "`", TextType.CODE)
+    bold = split_nodes_delimiter(code, "**", TextType.BOLD)
+    italic = split_nodes_delimiter(bold, "_", TextType.ITALIC)
+    return italic
