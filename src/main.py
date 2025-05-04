@@ -6,9 +6,13 @@ from helper_funcs import *
 def main():
 
 	
-	sample_text = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
+	markdown = """\n\n
+hello
 
+
+world
+\n\n"""
 	
-	print(text_to_textnodes(sample_text))
+	print(markdown_to_blocks(markdown))
 
 main()
