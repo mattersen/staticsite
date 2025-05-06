@@ -89,7 +89,7 @@ def markdown_to_blocks(markdown):
     return blocks
 
 def block_to_block_type(block):
-    if re.findall(r'^#{1,6}\s.+$'):
+    if re.findall(r'^#{1,6}\s.+$', block):
         return BlockType.HEADING
     if block.startswith("```") and block.endswith("```"):
         return BlockType.CODE    
