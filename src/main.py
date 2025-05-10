@@ -1,6 +1,7 @@
 from textnode import TextNode, TextType
 from htmlnode import HTMLNode, LeafNode, ParentNode
-from helper_funcs import *
+from markdown_blocks import markdown_to_blocks
+from inline_markdown import *
 
 
 def main():
