@@ -1,7 +1,6 @@
 import unittest
 
 from textnode import TextNode, TextType
-from helper_funcs import split_nodes_delimiter
 
 
 class TestTextNode(unittest.TestCase):
@@ -57,7 +56,6 @@ class TestTextNode(unittest.TestCase):
         self.assertEqual(html_node.tag, "img")
         self.assertEqual(html_node.value, "")
         self.assertEqual(html_node.props, {"src":"https://www.google.com", "alt": "This is a text node"})
-
     
 if __name__ == "__main__":
     unittest.main()
